@@ -5,14 +5,14 @@ const Show = require('../models/Show');
 const Movie = require('../models/Movie');
 const bookingController = require('../controllers/bookingController');
 
-// ===== TMDB SYNC ROUTES =====
+
 router.post('/sync-from-frontend', movieController.syncFromFrontend);
 
-// ===== MOVIE DATA ROUTES =====
+
 router.get('/all-movies', movieController.getAllMovies);
 router.get('/details/:tmdbId', movieController.getMovieByTmdbId);
 
-// ===== SHOW & BOOKING ROUTES =====
+
 router.get('/get-show/:tmdbId/:time', async (req, res) => {
     try {
         const { tmdbId, time } = req.params;
@@ -85,7 +85,7 @@ router.post('/book-seats', async (req, res) => {
 });
 
 
-// 🚀 3. ITHE PASTE KARA (module.exports chya agadi)
+//  3. ITHE PASTE KARA (module.exports chya agadi)
 router.post('/confirm-booking', bookingController.confirmBooking);
 router.post('/confirm-booking', async (req, res) => {
     try {

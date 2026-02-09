@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 exports.signup = async (req, res) => {
-    console.log("Frontend kadun ha data ala:", req.body);
+    console.log("data from frontend:", req.body);
     try {
         const { name, email, password } = req.body;
 
