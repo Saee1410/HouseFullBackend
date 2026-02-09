@@ -1,0 +1,19 @@
+const jwt = require('jsonwebtoken');
+
+const authMiddleware = (req, res, next) => {
+    const token = req.header('Authorization')?.split('')[1];
+
+    if(!token) {
+        return res.status(401).json({ message: "Access Denied. No token provided."});
+    }
+
+    try {
+        const verified = jwt.verify(token, process.env.JWT_SECRET);
+        req.user = verified; //save user id request in object
+        next();
+    }catch (err) {
+        req.status(400).json({ message: "Invalid Token"});
+    }
+};
+
+module.exports = authMiddleware;    
