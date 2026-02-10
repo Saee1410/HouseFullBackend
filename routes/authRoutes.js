@@ -25,12 +25,12 @@ router.get('/google',
 
 router.get('/google/callback',
     passport.authenticate('google', { 
-        failureRedirect: 'https://housefull-frontend.vercel.app/login?error=auth_failed', 
+        failureRedirect: 'https://house-full-frontend.vercel.app/login?error=auth_failed', 
         session: false 
     }),
     (req, res) => {
         if (!req.user) {
-            return res.redirect('https://housefull-frontend.vercel.app/login?error=no_user');
+            return res.redirect('https://house-full-frontend.vercel.app/login?error=no_user');
         }
         
         const token = jwt.sign(
@@ -43,7 +43,7 @@ router.get('/google/callback',
             { expiresIn: '1d' }
         );
 
-        res.redirect(`https://housefull-frontend.vercel.app/google-success?token=${token}`);
+        res.redirect(`https://house-full-frontend.vercel.app/google-success?token=${token}`);
     }
 );
 
