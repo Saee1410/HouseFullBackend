@@ -19,7 +19,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-  origin: ["https://house-full-frontend.vercel.app", "http://localhost:3000"],
+  origin: ["https://housefull-frontend.vercel.app", "http://localhost:3000"],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
@@ -36,7 +36,7 @@ mongoose.connect(process.env.MONGO_URI)
 });
 
 // Routes
-app.use('/api/users', authRoutes);
+app.use('/api/auth', authRoutes);
 app.use('/api/movies', movieRoutes);
 app.use('/api/payment', paymentRoutes);
 app.use('/api/admin', adminRoutes);
