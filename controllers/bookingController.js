@@ -2,9 +2,15 @@ const Show = require('../models/Show');
 const sendTicketEmail = require('../utils/sendEmail');
 
 exports.confirmBooking = async (req, res) => {
+    console.log("Incoming Data:", req.body); // Debugging line to check incoming data   
     try {
         const { showId, selectedSeats, userEmail, movieName, showTime, totalAmount } = req.body; // २. जास्तीचा डेटा घ्या
 
+        if(!showId || !selectedSeats || !userEmail) {
+            console.log("Missing data failed");
+            return res.status(400).json({ message: "missing required fields!" });
+        }
+        
         const show = await Show.findById(showId);
         if (!show) return res.status(404).json({ message: "Show sapdla nahi!" });
 
