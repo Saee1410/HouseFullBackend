@@ -1,5 +1,5 @@
 const Show = require('../models/Show');
-const sendTicketEmail = require('../utils/sendTicketEmail'); // १. ईमेल फंक्शन इम्पोर्ट करा
+const sendTicketEmail = require('../utils/sendEmail');
 
 exports.confirmBooking = async (req, res) => {
     try {

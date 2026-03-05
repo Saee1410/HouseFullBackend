@@ -1,7 +1,12 @@
 const mongoose = require('mongoose');
 
 const movieSchema = new mongoose.Schema({
-    tmdbId: Number,
+    tmdbId: {
+        type: String,
+        unique: true,
+        required: true,
+        index: true
+    },
     title: String,
     poster: String,
     backdrop: String,
